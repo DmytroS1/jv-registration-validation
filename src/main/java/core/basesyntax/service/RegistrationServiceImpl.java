@@ -1,16 +1,16 @@
 package core.basesyntax.service;
 
 import core.basesyntax.dao.StorageDao;
-import core.basesyntax.dao.StorageDaoImpl;
 import core.basesyntax.model.User;
 
 public class RegistrationServiceImpl implements RegistrationService {
 
-    private final StorageDao storageDao = new StorageDaoImpl();
     private static final int MIN_AGE = 18;
     private static final int MIN_SYMBOLS_LENGTH = 6;
+    private final StorageDao storageDao;
 
     public RegistrationServiceImpl(StorageDao storageDao) {
+        this.storageDao = storageDao;
     }
 
     @Override
