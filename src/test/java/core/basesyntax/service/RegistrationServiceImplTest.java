@@ -1,6 +1,8 @@
 package core.basesyntax.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import core.basesyntax.dao.StorageDao;
 import core.basesyntax.dao.StorageDaoImpl;
@@ -116,6 +118,7 @@ class RegistrationServiceImplTest {
         assertThrows(RegistrationException.class,
                 () -> registrationService.register(user));
     }
+
     @Test
     void register_validPassword_Ok() {
         user.setPassword("password");
@@ -123,6 +126,7 @@ class RegistrationServiceImplTest {
         assertNotNull(registered);
         assertEquals(user.getLogin(), registered.getLogin());
     }
+
     @Test
     void register_validLogin_Ok() {
         user.setLogin("validLog");
